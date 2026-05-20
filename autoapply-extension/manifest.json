@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AutoApply Local Assistant",
+  "description": "Local-only job application detector and autofill assistant for testing.",
+  "version": "0.2.1",
+  "action": {
+    "default_title": "AutoApply",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "webNavigation",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

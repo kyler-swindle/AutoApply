@@ -1,0 +1,15 @@
+# AutoApply private/local data - do not commit real profile/resume info
+autoapply_user_data*.json
+*.local.json
+local_profile.json
+local_answers.json
+private/
+local/
+resumes/
+resume.*
+*.pdf
+*.doc
+*.docx
+.env
+.DS_Store
+node_modules/

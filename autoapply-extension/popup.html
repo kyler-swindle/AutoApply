@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoApply</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>AutoApply</h1>
+    <p id="status">Local test build</p>
+  </header>
+
+  <section class="actions">
+    <button id="detectBtn">Detect page</button>
+    <button id="scanBtn">Scan fields</button>
+    <button id="fillBtn" class="primary">Fill matched</button>
+  </section>
+
+  <section class="summary" id="summary"></section>
+
+  <details open>
+    <summary>Profile JSON</summary>
+    <textarea id="profileJson" spellcheck="false"></textarea>
+    <div class="button-row">
+      <button id="saveProfileBtn">Save profile</button>
+      <button id="repairStorageBtn">Repair/merge defaults</button>
+      <button id="resetDefaultsBtn" class="danger">Reset sample defaults</button>
+    </div>
+  </details>
+
+  <details>
+    <summary>Question rules JSON</summary>
+    <textarea id="answersJson" spellcheck="false"></textarea>
+    <div class="button-row">
+      <button id="saveAnswersBtn">Save question rules</button>
+      <button id="exportDataBtn">Export profile/rules JSON</button>
+      <button id="importDataBtn">Import profile/rules JSON</button>
+    </div>
+    <input id="importDataFile" class="hidden-file" type="file" accept="application/json,.json" />
+    <div id="syncNotice" class="notice" aria-live="polite"></div>
+  </details>
+
+  <details>
+    <summary>Resume upload</summary>
+    <p class="small">Choose a local resume once, then AutoApply can attach that stored file to matching resume upload fields.</p>
+    <input id="resumeFileInput" type="file" accept=".pdf,.doc,.docx,.txt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" />
+    <div class="button-row">
+      <button id="saveResumeBtn">Save selected resume</button>
+      <button id="clearResumeBtn" class="danger">Clear stored resume</button>
+    </div>
+    <div id="resumeStatus" class="small"></div>
+  </details>
+
+  <details id="addUnknownDetails">
+    <summary>Add unknown question</summary>
+    <label>Question/tag text <input id="newTags" placeholder="e.g. security clearance, clearance" /></label>
+    <label>Profile key <input id="newAnswerKey" placeholder="e.g. securityClearance" /></label>
+    <label>Answer <input id="newAnswer" placeholder="e.g. Eligible to obtain Secret clearance" /></label>
+    <button id="addRuleBtn">Add rule</button>
+    <div id="addRuleNotice" class="notice" aria-live="polite"></div>
+  </details>
+
+  <section>
+    <h2>Results</h2>
+    <div id="results"></div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
