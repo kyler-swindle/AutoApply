@@ -137,7 +137,11 @@ async function repairStorage(reset = false) {
   });
   if (!response?.ok) throw new Error(response?.error || "Storage repair failed.");
   await loadState();
-  return response.data || {};
+  const data = response.data || {};
+  const source = data.source ? ` Source: ${data.source}.` : "";
+  const mode = reset ? "Reloaded" : "Merged";
+  setSyncNotice(`${mode} AutoApply data into chrome.storage.local.${source}`);
+  return data;
 }
 
 async function showTopFrameBadge(text) {

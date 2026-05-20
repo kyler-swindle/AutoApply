@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AutoApply Local Assistant",
   "description": "Local-only job application detector and autofill assistant for testing.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "action": {
     "default_title": "AutoApply",
     "default_popup": "popup.html"
